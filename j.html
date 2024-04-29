@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container{
+            width: 90%;
+            /* border: 1px solid red; */
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0px auto;
+        }
+
+        .flex-container > div{
+            flex-basis: 40%;
+            min-width: 400px;
+            margin: 0px auto;
+        }
+
+        select{
+            width: 90%;
+            margin: 0px auto;
+            height: 25px;
+            padding-left: 10px;
+            font-size: 16px;
+        }
+        img{
+            width: inherit;
+        }
+
+        .leftfruit,.rightfruit{
+            display: none;
+        }
+    </style>
+
+
+</head>
+<body>
+    
+    <div  class="flex-container">
+        <div>
+            <select name="" id="leftselect" onchange="myfun()" >
+                <option value="m">j.</option>
+                <option value="b">gucchi</option>
+                <option value="o">armani</option>
+            </select>
+        </div>
+
+        <div>
+            <select name="" id="rightselect" onchange="myfun_2()">
+                <option value="m">j.</option>
+                <option value="b">gucchi</option>
+                <option value="o">armani</option>
+            </select>
+        </div>
+    </div>
+
+    <hr>
+    <div  class="flex-container">
+
+        <div id="left">
+            <div class="leftfruit">
+                <img src="download.jfif" alt="">
+                <h3>gucchi</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, quia!</p>
+            </div>
+            <div class="leftfruit">
+                <img src="download (1).jfif" alt="">
+                <h3>j.</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, quia!</p>
+            </div>
+            <div class="leftfruit">
+                <img src="1q.png" alt="">
+                <h3>armani</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, quia!</p>
+            </div>
+        </div>
+
+        <div id="right">
+            <div class="rightfruit">
+                <img src="download.jfif" alt="">
+                <h3>gucchi</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, quia!</p>
+            
+            </div>
+            <div class="rightfruit">
+                <img src="download (1).jfif" alt="">
+                <h3>armani</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, quia!</p>
+            </div>
+
+            <div class="rightfruit">
+                <img src="1q.png" alt="">
+                <h3>j.</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, quia!</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        function myfun(){
+            const left = document.getElementById("leftselect");
+         
+
+            if(left.value =="m")
+            {
+                document.getElementsByClassName("leftfruit")[1].style.display = "block";
+                document.getElementsByClassName("leftfruit")[0].style.display = "none";
+                document.getElementsByClassName("leftfruit")[2].style.display = "none";
+            }
+            if(left.value=="b")
+            {
+                document.getElementsByClassName("leftfruit")[1].style.display = "none";
+                document.getElementsByClassName("leftfruit")[0].style.display = "block";
+                document.getElementsByClassName("leftfruit")[2].style.display = "none";
+            }
+            if(left.value=="o")
+            {
+                document.getElementsByClassName("leftfruit")[1].style.display = "none";
+                document.getElementsByClassName("leftfruit")[0].style.display = "none";
+                document.getElementsByClassName("leftfruit")[2].style.display = "block";
+            }
+
+
+        }
+
+
+
+        function myfun_2(){
+            const right = document.getElementById("rightselect");
+         
+
+            if(right.value=="m")
+            {
+                document.getElementsByClassName("rightfruit")[1].style.display = "block";
+                document.getElementsByClassName("rightfruit")[0].style.display = "none";
+                document.getElementsByClassName("rightfruit")[2].style.display = "none";
+            }
+            if(right.value=="b")
+            {
+                document.getElementsByClassName("rightfruit")[1].style.display = "none";
+                document.getElementsByClassName("rightfruit")[0].style.display = "block";
+                document.getElementsByClassName("rightfruit")[2].style.display = "none";
+            }
+            if(right.value=="o")
+            {
+                document.getElementsByClassName("rightfruit")[1].style.display = "none";
+                document.getElementsByClassName("rightfruit")[0].style.display = "none";
+                document.getElementsByClassName("rightfruit")[2].style.display = "block";
+            }
+
+
+        }
+    </script>
+
+
+</body>
+</html>

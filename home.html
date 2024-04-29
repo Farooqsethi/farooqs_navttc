@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script>
+    fetch('./mobilee.json')
+    .then(response => response.json())
+    .then(data =>{
+
+        var url=window.location.href;
+        //alert(url);
+        var std_id= url.substring(url.lastIndexOf("=") + 1)
+       // alert(std_id);
+        var mydata= ""
+        var mydata3=""
+        for ( i in data){
+
+            if(std_id == data[i].pid){
+            var mydata2= data[i].category;
+            mydata =` <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card">
+                <img style='height:250px' src="${data[i].img}" alt="" >
+                <div class="card-body">
+                    <p>Name :${data[i].name}</p>
+                    <p> Batch: ${data[i].batch}</p>
+                    <a href="prac5.html?id=${data[i].pid}" class="btn btn-success w-100 d-block">Details</a>
+                </div>
+            </div>
+        </div>`
+for(i in data){
+    if(mydata2== data[i].category){
+      mydata3 +=`<tr><td>${data[i].name}</td>
+        <td>${data[i].category}</td>
+        <td>${data[i].ram}</td>
+        <td>${data[i].storage}</td>
+        <td>${data[i].price}</td>
+        <td>${data[i].color}</td>
+        <td><img style='height:100px' src="${data[i].img}" alt="" ></td>
+        </tr>`
+
+    }
+}
+document.getElementById('content2').innerHTML=mydata3;
+
+        }
+        }
+        document.getElementById('content').innerHTML=mydata;
+    })
+</script>
+<body>
+   <div class="container-fluid my-5">
+    <div class="row gy-2">
+        <div class="col-11 mx-auto">
+            <div class="row" id="content"></div>
+        </div>
+       
+    </div>  
+
+   </div> 
+   <table class="table ">
+    <tr>
+        <th scope="col">NAME</th>
+        <th scope="col" >Category</th>
+        <th scope="col" >Ram</th>
+        <th scope="col" >Storage</th>
+        <th scope="col" >Price</th>
+        <th scope="col" >Color</th>
+        <th scope="col" >Image</th>
+    </tr>
+    <tr>
+        <tbody id="content2"></tbody>
+    </tr>
+   </table>
+</body>
+</html>

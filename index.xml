@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+    <html lang="en">
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 style="background-color: red">Data Working</h1>
+        <h1><xsl:value-of select="bio/student/name" /></h1>
+    <table border="1px">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Qualification</th>
+        </tr>
+        <tr>
+            <td><xsl:value-of select="bio/student/name" /></td>
+            <td><xsl:value-of select="bio/student/age" /></td>
+            <td><xsl:value-of select="bio/student/qualification" /></td>
+        </tr>
+        <tr>
+            <td><xsl:value-of select="bio/student/name"/></td>
+            <td><xsl:value-of select="bio/student/age" /></td>
+            <td><xsl:value-of select="bio/student/qualification" /></td>
+        </tr>
+    </table>
+    </body>
+    </html>
+    
+</xsl:template>
+</xsl:stylesheet>
+
